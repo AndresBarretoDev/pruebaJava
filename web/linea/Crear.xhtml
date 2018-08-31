@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registrar Linea</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet"/>
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.9/css/mdb.min.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="NumLinea:" for="numLinea" />
+                    <h:inputText id="numLinea" value="#{lineaController.linea.numLinea}" title="NumLinea" required="true" requiredMessage="The NumLinea field is required."/>
+                    <h:outputLabel value="EstadoLinea:" for="estadoLinea" />
+                    <h:inputText id="estadoLinea" value="#{lineaController.linea.estadoLinea}" title="EstadoLinea" />
+                    <h:outputLabel value="PERSONAidpersona:" for="PERSONAidpersona" />
+                    <h:selectOneMenu id="PERSONAidpersona" value="#{lineaController.persona.idpersona}" title="PERSONAidpersona" required="true" requiredMessage="The PERSONAidpersona field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{personaController.listarPersona()}" var="persona" itemLabel="#{persona.nombre}" itemValue="#{persona.idpersona}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
